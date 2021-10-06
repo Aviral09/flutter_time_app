@@ -1,62 +1,114 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Home()
+    home: Home(),
   ));
 }
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+    const Home({Key? key}) : super(key: key);
+
+    @override
+    _HomeState createState() => _HomeState();
+  }
+
+class _HomeState extends State<Home>{
+  int ninjaLevel = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
-        title: Text("Weather App"),
+        backgroundColor: Colors.grey[850],
+        title: const Text(
+          "Ninja ID Card",
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
-        backgroundColor: Colors.pinkAccent[400],
+        elevation: 0,
       ),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-              flex: 3,
-              child: Image.asset('assets/space-2.jpg')
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.amber,
-              child: Text("1"),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.cyan,
-              child: Text("2"),
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              padding: EdgeInsets.all(30),
-              color: Colors.lightBlueAccent,
-              child: Text("3"),
-            ),
-          ),
-        ],
-      ),
-
-
       floatingActionButton: FloatingActionButton(
-        child: Text("Click"),
-        onPressed: () {},
-        backgroundColor: Colors.pinkAccent[400],
+        onPressed: (){
+          setState(() {
+            ninjaLevel+=1;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.grey[850],
       ),
+      body: Padding(
+        padding: const EdgeInsets.all(30.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            SizedBox(height: 30),
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/space.jpg'),
+                radius: 30,
+              ),
+            ),
+            const SizedBox(height: 20),
+            Divider(height: 60,
+            color: Colors.grey[850],
+            ),
+            Text(
+              'NAME',
+              style: TextStyle(
+                color: Colors.grey,
+                letterSpacing: 2.0
+              )
+            ),
+            SizedBox(height: 10),
+            Text(
+                'Aviral',
+                style: TextStyle(
+                    color: Colors.amber[200],
+                    letterSpacing: 2.0,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                )
+            ),
+            SizedBox(height: 30),
+            Text(
+                'CURRENT NINJA LEVEL',
+                style: TextStyle(
+                    color: Colors.grey,
+                    letterSpacing: 2.0
+                )
+            ),
+            SizedBox(height: 10),
+            Text(
+                '$ninjaLevel',
+                style: TextStyle(
+                  color: Colors.amber[200],
+                  letterSpacing: 2.0,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                )
+            ),
+            SizedBox(height: 30),
+            Row(
+              children: const [
+                Icon(Icons.mail,
+                color: Colors.grey),
+                SizedBox(width: 10),
+                Text('aviralgoel2001@gmail.com',
+                style: TextStyle(
+                  color: Colors.grey
+                )
+                )
+              ],
+            )
+          ],
+        ),
+      )
     );
   }
 }
-
