@@ -17,27 +17,35 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.pinkAccent[400],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      body: Row(
         children: <Widget>[
-          Container(
-            color: Colors.amber,
-            child: TextButton(onPressed: (){} ,child: Text("Oh La La")),
+          Expanded(
+              flex: 3,
+              child: Image.asset('assets/space-2.jpg')
           ),
-          Text("Hello from column"),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Text("Hello, Aviral!"),
-              ElevatedButton(onPressed: (){}, child: Text("Hello")),
-              Container(
-                  color: Colors.amber,
-                  child: Text("Hello"),
-                  padding: EdgeInsets.all(20)
-              )
-            ],
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30),
+              color: Colors.amber,
+              child: Text("1"),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30),
+              color: Colors.cyan,
+              child: Text("2"),
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              padding: EdgeInsets.all(30),
+              color: Colors.lightBlueAccent,
+              child: Text("3"),
+            ),
           ),
         ],
       ),
