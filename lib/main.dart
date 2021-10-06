@@ -17,17 +17,32 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.pinkAccent[400],
       ),
-      body: Container(
-          child: ElevatedButton.icon(
-            onPressed: () {},
-            icon: Icon(
-                Icons.camera_enhance
-            ),
-            label: Text("Hello"),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            color: Colors.amber,
+            child: TextButton(onPressed: (){} ,child: Text("Oh La La")),
           ),
-        margin: EdgeInsets.all(50),
-        padding: EdgeInsets.all(50),
+          Text("Hello from column"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text("Hello, Aviral!"),
+              ElevatedButton(onPressed: (){}, child: Text("Hello")),
+              Container(
+                  color: Colors.amber,
+                  child: Text("Hello"),
+                  padding: EdgeInsets.all(20)
+              )
+            ],
+          ),
+        ],
       ),
+
+
       floatingActionButton: FloatingActionButton(
         child: Text("Click"),
         onPressed: () {},
