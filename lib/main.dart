@@ -1,50 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'quote.dart';
-import 'quote_card.dart';
+import 'package:flutter_weather/pages/choose_location.dart';
+import 'package:flutter_weather/pages/loading.dart';
+import 'package:flutter_weather/pages/home.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: QuoteList(),
-  ));
-}
+void main() => runApp(MaterialApp(
+  initialRoute: '/home',
+  routes: {
+    '/': (content) => Loading(),
+    '/home': (content) => Home(),
+    '/location': (content) => ChooseLocation(),
+  },
+));
 
-class QuoteList extends StatefulWidget {
-  const QuoteList({Key? key}) : super(key: key);
-
-  @override
-  _QuoteListState createState() => _QuoteListState();
-}
-
-class _QuoteListState extends State<QuoteList> {
-
-  List<Quote> quotes = [
-    Quote(quote: "Hello man",author :"Aviral"),
-    Quote(quote: "How are you man?",author : "Aviral"),
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Quotes'),
-        centerTitle: true,
-        backgroundColor: Colors.lightBlueAccent,
-      ),
-      body: Center(
-        child: Column(
-          children: quotes.map((quote) => Quote_Card(
-            quote: quote,
-            delete: () {
-              setState(() {
-                quotes.remove(quote);
-              });
-            }
-          )
-          ).toList(),
-        ),
-      )
-    );
-  }
-}
