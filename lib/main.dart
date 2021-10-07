@@ -6,7 +6,7 @@ import 'package:flutter_weather/pages/loading.dart';
 import 'package:flutter_weather/pages/home.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: '/home',
+  initialRoute: '/',
   routes: {
     '/': (content) => Loading(),
     '/home': (content) => Home(),
